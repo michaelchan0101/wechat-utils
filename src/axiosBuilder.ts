@@ -5,7 +5,7 @@ const RequestErrorHandler = function (err: any) {
   throw new Error(err?.response?.data)
 }
 
-const createAxios = (options: AxiosRequestConfig, errorHandler: any): AxiosInstance => {
+function createAxios(options: AxiosRequestConfig, errorHandler: any): AxiosInstance {
   const axiosBase = axios.create(options)
   axiosBase.interceptors.response.use((resp) => resp, errorHandler)
   return axiosBase

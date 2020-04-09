@@ -68,7 +68,7 @@ export class Wechat {
       throw err
     }
   }
-  private updateAccessToken(): Promise<viod> {
+  private async updateAccessToken(): Promise<void> {
     const { data } = await fetch.get(`/cgi-bin/token`, {
       params: {
         grant_type: 'client_credential',
@@ -86,7 +86,7 @@ export class Wechat {
       throw { errcode: data.errcode, errmsg: data.errmsg }
     }
   }
-  public getAccessToken(): Promise<WechatAccessTokenResponse> {
+  public async getAccessToken(): Promise<WechatAccessTokenResponse> {
     if (!this.token || this.token.expiredAt <= Date.now()) {
       await this.updateAccessToken()
     }
