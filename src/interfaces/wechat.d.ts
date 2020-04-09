@@ -23,3 +23,8 @@ export interface WechatUserInfo {
     timestamp: number
   }
 }
+
+export interface WechatAccessTokenResponse {
+  accessToken: string
+  expiredAt: number
+}
