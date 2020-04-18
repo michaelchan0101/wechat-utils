@@ -1,5 +1,8 @@
 .DS_Store
 
+dist
+coverage
+
 # logs
 logs
 *.log
